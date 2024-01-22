@@ -15,6 +15,10 @@ const items: Item[] = [
         title: 'Basic Setup',
         href: '/useDraggable/basic-setup',
       },
+      {
+        title: 'Drag Handle',
+        href: '/useDraggable/drag-handle',
+      },
     ],
   },
 ]
