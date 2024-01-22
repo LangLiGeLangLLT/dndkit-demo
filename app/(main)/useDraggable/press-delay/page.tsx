@@ -1,20 +1,20 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import {
   DndContext,
   KeyboardSensor,
   MouseSensor,
+  PointerActivationConstraint,
   TouchSensor,
   useDraggable,
   useSensor,
   useSensors,
 } from '@dnd-kit/core'
-import { GripVertical, Move } from 'lucide-react'
-import { CSSProperties, useEffect, useState } from 'react'
-import { CSS } from '@dnd-kit/utilities'
 import { Coordinates } from '@dnd-kit/core/dist/types'
-import { cn } from '@/lib/utils'
+import { Move } from 'lucide-react'
+import { CSSProperties, useEffect, useState } from 'react'
 
 export default function Page() {
   const [isClient, setIsClient] = useState(false)
@@ -26,11 +26,19 @@ export default function Page() {
   return <>{isClient && <Dnd />}</>
 }
 
+const activationConstraint: PointerActivationConstraint = {
+  delay: 250,
+  tolerance: 5,
+}
+
 function Dnd() {
-  const [{ x, y }, setCoordinates] = useState<Coordinates>({ x: 0, y: 0 })
-  const mouseSensor = useSensor(MouseSensor)
-  const touchSensor = useSensor(TouchSensor)
-  const keyboardSensor = useSensor(KeyboardSensor)
+  const [{ x, y }, setCoordinates] = useState<Coordinates>({
+    x: 0,
+    y: 0,
+  })
+  const mouseSensor = useSensor(MouseSensor, { activationConstraint })
+  const touchSensor = useSensor(TouchSensor, { activationConstraint })
+  const keyboardSensor = useSensor(KeyboardSensor, {})
   const sensors = useSensors(mouseSensor, touchSensor, keyboardSensor)
 
   return (
@@ -62,24 +70,25 @@ function Draggable({ top, left }: { top: number; left: number }) {
       id: 'draggable',
     })
 
-  const style: CSSProperties = {
-    transform: CSS.Translate.toString(transform),
-  }
+  const style: CSSProperties | undefined = transform
+    ? {
+        transform: `translate3d(${transform.x}px, ${transform.y}px, 0) scale(1.06)`,
+      }
+    : undefined
 
   return (
     <Button
-      className={cn('relative cursor-auto', isDragging && 'shadow-xl')}
+      className={cn(
+        'relative cursor-grab active:cursor-grabbing',
+        isDragging && 'shadow-xl'
+      )}
       ref={setNodeRef}
       style={{ ...style, top, left }}
+      {...listeners}
       {...attributes}
-      tabIndex={-1}
     >
       <Move className="mr-2" />
       draggable
-      <GripVertical
-        {...listeners}
-        className="cursor-grab active:cursor-grabbing hover:opacity-50"
-      />
     </Button>
   )
 }
