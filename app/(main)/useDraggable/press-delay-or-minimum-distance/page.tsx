@@ -48,15 +48,9 @@ function Dnd() {
         })
       }}
     >
-      <Wrapper>
-        <Draggable top={y} left={x}></Draggable>
-      </Wrapper>
+      <Draggable top={y} left={x} />
     </DndContext>
   )
-}
-
-function Wrapper({ children }: { children: React.ReactNode }) {
-  return <div className="h-96 bg-gray-200">{children}</div>
 }
 
 function Draggable({ top, left }: { top: number; left: number }) {

@@ -59,6 +59,14 @@ const items: Item[] = [
         title: 'Vertical Axis',
         href: '/useDraggable/vertical-axis',
       },
+      {
+        title: 'Restrict To Window Edges',
+        href: '/useDraggable/restrict-to-window-edges',
+      },
+      {
+        title: 'Restrict To Container Node Edges',
+        href: '/useDraggable/restrict-to-container-node-edges',
+      },
     ],
   },
 ]

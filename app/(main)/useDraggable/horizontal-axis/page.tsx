@@ -62,15 +62,9 @@ function Dnd() {
       }}
       modifiers={[restrictToHorizontalAxis]}
     >
-      <Wrapper>
-        <Draggable top={y} left={x} axis={Axis.Horizontal} />
-      </Wrapper>
+      <Draggable top={y} left={x} axis={Axis.Horizontal} />
     </DndContext>
   )
-}
-
-function Wrapper({ children }: { children: React.ReactNode }) {
-  return <div className="h-96 bg-gray-200">{children}</div>
 }
 
 function Draggable({
