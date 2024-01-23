@@ -55,6 +55,10 @@ const items: Item[] = [
         title: 'Horizontal Axis',
         href: '/useDraggable/horizontal-axis',
       },
+      {
+        title: 'Vertical Axis',
+        href: '/useDraggable/vertical-axis',
+      },
     ],
   },
 ]
