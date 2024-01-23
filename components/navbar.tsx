@@ -47,6 +47,10 @@ const items: Item[] = [
         title: 'Minimum Distance X Axis and Tolerance Y Axis',
         href: '/useDraggable/minimum-distance-x-axis-and-tolerance-y-axis',
       },
+      {
+        title: 'Minimum Distance Y Axis and Tolerance X Axis',
+        href: '/useDraggable/minimum-distance-y-axis-and-tolerance-x-axis',
+      },
     ],
   },
 ]
