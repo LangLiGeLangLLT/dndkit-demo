@@ -24,8 +24,12 @@ const items: Item[] = [
         href: '/useDraggable/press-delay',
       },
       {
-        title: 'Press Delay Or Distance',
-        href: '/useDraggable/press-delay-or-distance',
+        title: 'Press Delay Or Minimum Distance',
+        href: '/useDraggable/press-delay-or-minimum-distance',
+      },
+      {
+        title: 'Minimum Distance',
+        href: '/useDraggable/minimum-distance',
       },
     ],
   },
