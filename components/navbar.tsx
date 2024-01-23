@@ -39,6 +39,10 @@ const items: Item[] = [
         title: 'Minimum Distance - Y Axis',
         href: '/useDraggable/minimum-distance-y-axis',
       },
+      {
+        title: 'Minimum Distance - X&Y Axis',
+        href: '/useDraggable/minimum-distance-x-and-y-axis',
+      },
     ],
   },
 ]
