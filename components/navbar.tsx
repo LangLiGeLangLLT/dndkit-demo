@@ -67,6 +67,10 @@ const items: Item[] = [
         title: 'Restrict To Container Node Edges',
         href: '/useDraggable/restrict-to-container-node-edges',
       },
+      {
+        title: 'Snap To Grid',
+        href: '/useDraggable/snap-to-grid',
+      }
     ],
   },
 ]
