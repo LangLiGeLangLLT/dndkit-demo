@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils'
 import {
   DndContext,
   KeyboardSensor,
-  Modifier,
   MouseSensor,
   TouchSensor,
   useDraggable,
@@ -15,9 +14,7 @@ import {
 import { Coordinates } from '@dnd-kit/core/dist/types'
 import { Move } from 'lucide-react'
 import { CSSProperties, useEffect, useState } from 'react'
-
-import type { ClientRect } from '@dnd-kit/core'
-import type { Transform } from '@dnd-kit/utilities'
+import { restrictToParentElement } from '@dnd-kit/modifiers'
 
 export default function Page() {
   const [isClient, setIsClient] = useState(false)
@@ -27,48 +24,6 @@ export default function Page() {
   }, [])
 
   return <>{isClient && <Dnd />}</>
-}
-
-function restrictToBoundingRect(
-  transform: Transform,
-  rect: ClientRect,
-  boundingRect: ClientRect
-): Transform {
-  const value = {
-    ...transform,
-  }
-
-  if (rect.top + transform.y <= boundingRect.top) {
-    value.y = boundingRect.top - rect.top
-  } else if (
-    rect.bottom + transform.y >=
-    boundingRect.top + boundingRect.height
-  ) {
-    value.y = boundingRect.top + boundingRect.height - rect.bottom
-  }
-
-  if (rect.left + transform.x <= boundingRect.left) {
-    value.x = boundingRect.left - rect.left
-  } else if (
-    rect.right + transform.x >=
-    boundingRect.left + boundingRect.width
-  ) {
-    value.x = boundingRect.left + boundingRect.width - rect.right
-  }
-
-  return value
-}
-
-const restrictToContainerEdges: Modifier = ({
-  transform,
-  draggingNodeRect,
-  containerNodeRect,
-}) => {
-  if (!draggingNodeRect || !containerNodeRect) {
-    return transform
-  }
-
-  return restrictToBoundingRect(transform, draggingNodeRect, containerNodeRect)
 }
 
 function Dnd() {
@@ -87,7 +42,7 @@ function Dnd() {
             return { x: x + delta.x, y: y + delta.y }
           })
         }}
-        modifiers={[restrictToContainerEdges]}
+        modifiers={[restrictToParentElement]}
       >
         <Draggable top={y} left={x} />
       </DndContext>

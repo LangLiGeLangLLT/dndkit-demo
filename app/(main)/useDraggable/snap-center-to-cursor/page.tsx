@@ -12,9 +12,9 @@ import {
   useSensors,
 } from '@dnd-kit/core'
 import { Coordinates } from '@dnd-kit/core/dist/types'
+import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import { Move } from 'lucide-react'
 import { CSSProperties, useEffect, useState } from 'react'
-import { restrictToWindowEdges } from '@dnd-kit/modifiers'
 
 export default function Page() {
   const [isClient, setIsClient] = useState(false)
@@ -27,7 +27,10 @@ export default function Page() {
 }
 
 function Dnd() {
-  const [{ x, y }, setCoordinates] = useState<Coordinates>({ x: 0, y: 0 })
+  const [{ x, y }, setCoordinates] = useState<Coordinates>({
+    x: 0,
+    y: 0,
+  })
   const mouseSensor = useSensor(MouseSensor)
   const touchSensor = useSensor(TouchSensor)
   const keyboardSensor = useSensor(KeyboardSensor)
@@ -38,10 +41,13 @@ function Dnd() {
       sensors={sensors}
       onDragEnd={({ delta }) => {
         setCoordinates(({ x, y }) => {
-          return { x: x + delta.x, y: y + delta.y }
+          return {
+            x: x + delta.x,
+            y: y + delta.y,
+          }
         })
       }}
-      modifiers={[restrictToWindowEdges]}
+      modifiers={[snapCenterToCursor]}
     >
       <Draggable top={y} left={x} />
     </DndContext>

@@ -64,13 +64,17 @@ const items: Item[] = [
         href: '/useDraggable/restrict-to-window-edges',
       },
       {
-        title: 'Restrict To Container Node Edges',
-        href: '/useDraggable/restrict-to-container-node-edges',
+        title: 'Restrict To Parent Element',
+        href: '/useDraggable/restrict-to-parent-element',
       },
       {
         title: 'Snap To Grid',
         href: '/useDraggable/snap-to-grid',
-      }
+      },
+      {
+        title: 'Snap Center To Cursor',
+        href: '/useDraggable/snap-center-to-cursor',
+      },
     ],
   },
 ]
