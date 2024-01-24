@@ -23,10 +23,10 @@ export default function Page() {
     setIsClient(true)
   }, [])
 
-  return <>{isClient && <Dnd />}</>
+  return <>{isClient && <Story />}</>
 }
 
-function Dnd() {
+function Story() {
   const [{ x, y }, setCoordinates] = useState<Coordinates>({
     x: 0,
     y: 0,

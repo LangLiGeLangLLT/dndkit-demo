@@ -77,6 +77,15 @@ const items: Item[] = [
       },
     ],
   },
+  {
+    title: 'useDroppable',
+    children: [
+      {
+        title: 'Basic Setup',
+        href: '/useDroppable/basic-setup',
+      },
+    ],
+  },
 ]
 
 export default function Navbar() {
@@ -97,7 +106,7 @@ function NavItem({ item }: { item: Item }) {
   if (item.children) {
     return (
       <div className="ml-4">
-        <h2 className="text-2xl">{item.title}</h2>
+        <h2 className="text-2xl font-bold">{item.title}</h2>
         <div>
           {item.children.map((v) => (
             <div key={v.title}>

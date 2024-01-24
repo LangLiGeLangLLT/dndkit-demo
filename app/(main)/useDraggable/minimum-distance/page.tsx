@@ -23,14 +23,14 @@ export default function Page() {
     setIsClient(true)
   }, [])
 
-  return <>{isClient && <Dnd />}</>
+  return <>{isClient && <Story />}</>
 }
 
 const activationConstraint: PointerActivationConstraint = {
   distance: 15,
 }
 
-function Dnd() {
+function Story() {
   const [{ x, y }, setCoordinates] = useState<Coordinates>({
     x: 0,
     y: 0,

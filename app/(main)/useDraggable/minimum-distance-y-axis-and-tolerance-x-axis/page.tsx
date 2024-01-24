@@ -23,7 +23,7 @@ export default function Page() {
     setIsClient(true)
   }, [])
 
-  return <>{isClient && <Dnd />}</>
+  return <>{isClient && <Story />}</>
 }
 
 const activationConstraint: PointerActivationConstraint = {
@@ -31,7 +31,7 @@ const activationConstraint: PointerActivationConstraint = {
   tolerance: { x: 30 },
 }
 
-function Dnd() {
+function Story() {
   const [{ x, y }, setCoordinates] = useState<Coordinates>({
     x: 0,
     y: 0,
