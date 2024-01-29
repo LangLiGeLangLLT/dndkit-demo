@@ -63,7 +63,7 @@ function Story() {
       modifiers={[restrictToVerticalAxis]}
     >
       <Wrapper>
-        <Draggable top={y} left={x} axis={Axis.Vertical} />
+        <DraggableItem top={y} left={x} axis={Axis.Vertical} />
       </Wrapper>
     </DndContext>
   )
@@ -73,7 +73,7 @@ function Wrapper({ children }: { children: React.ReactNode }) {
   return <div className="h-96 bg-gray-200">{children}</div>
 }
 
-function Draggable({
+function DraggableItem({
   top,
   left,
   axis,

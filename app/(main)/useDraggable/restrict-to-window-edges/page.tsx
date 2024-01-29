@@ -43,12 +43,12 @@ function Story() {
       }}
       modifiers={[restrictToWindowEdges]}
     >
-      <Draggable top={y} left={x} />
+      <DraggableItem top={y} left={x} />
     </DndContext>
   )
 }
 
-function Draggable({ top, left }: { top: number; left: number }) {
+function DraggableItem({ top, left }: { top: number; left: number }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
       id: 'draggable',

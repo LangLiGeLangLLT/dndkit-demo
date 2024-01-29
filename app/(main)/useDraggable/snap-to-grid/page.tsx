@@ -61,7 +61,7 @@ function Story() {
         }}
         modifiers={[snapToGrid]}
       >
-        <Draggable top={y} left={x} buttonStyle={buttonStyle} />
+        <DraggableItem top={y} left={x} buttonStyle={buttonStyle} />
       </DndContext>
       <Grid size={gridSize} onSizeChange={setGridSize} />
     </>
@@ -77,7 +77,7 @@ function Grid({ size }: { size: number; onSizeChange(size: number): void }) {
   )
 }
 
-function Draggable({
+function DraggableItem({
   top,
   left,
   buttonStyle,

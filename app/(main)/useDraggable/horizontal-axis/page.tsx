@@ -62,12 +62,12 @@ function Story() {
       }}
       modifiers={[restrictToHorizontalAxis]}
     >
-      <Draggable top={y} left={x} axis={Axis.Horizontal} />
+      <DraggableItem top={y} left={x} axis={Axis.Horizontal} />
     </DndContext>
   )
 }
 
-function Draggable({
+function DraggableItem({
   top,
   left,
   axis,

@@ -47,12 +47,12 @@ function Story() {
         })
       }}
     >
-      <Draggable top={y} left={x} />
+      <DraggableItem top={y} left={x} />
     </DndContext>
   )
 }
 
-function Draggable({ top, left }: { top: number; left: number }) {
+function DraggableItem({ top, left }: { top: number; left: number }) {
   const { attributes, isDragging, listeners, setNodeRef, transform } =
     useDraggable({
       id: 'draggable',
