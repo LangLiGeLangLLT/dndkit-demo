@@ -46,9 +46,9 @@ function Story() {
         setIsDragging(false)
       }}
     >
-      <div>
+      <div className="flex flex-col space-y-4">
         <div className="bg-green-100">{parent === null ? item : null}</div>
-        <div className="bg-blue-100">
+        <div className="bg-slate-100">
           {['A'].map((id) => (
             <Droppable key={id} id={id} dragging={isDragging}>
               {parent === id ? item : null}
@@ -123,7 +123,7 @@ function Droppable({
     <div
       ref={setNodeRef}
       className={cn(
-        'relative border transition rounded w-80 h-80 flex flex-col justify-center items-center space-y-4',
+        'relative bg-blue-100 border transition w-80 h-80 flex flex-col justify-center items-center space-y-4',
         isOver && '!border-red-500 shadow-xl',
         dragging && 'border-green-500',
         children && 'border-yellow-500'
