@@ -78,6 +78,15 @@ const items: Item[] = [
     ],
   },
   {
+    title: '<DragOverlay>',
+    children: [
+      {
+        title: 'Basic Setup',
+        href: '/DragOverlay/basic-setup',
+      },
+    ],
+  },
+  {
     title: 'useDroppable',
     children: [
       {
