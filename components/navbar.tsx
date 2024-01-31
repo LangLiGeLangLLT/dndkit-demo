@@ -88,6 +88,10 @@ const items: Item[] = [
         title: 'Multiple Droppables',
         href: '/useDroppable/multiple-droppables',
       },
+      {
+        title: 'Collision Detection Algorithms',
+        href: '/useDroppable/collision-detection-algorithms',
+      },
     ],
   },
 ]
