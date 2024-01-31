@@ -84,6 +84,10 @@ const items: Item[] = [
         title: 'Basic Setup',
         href: '/useDroppable/basic-setup',
       },
+      {
+        title: 'Multiple Droppables',
+        href: '/useDroppable/multiple-droppables',
+      },
     ],
   },
 ]

@@ -48,8 +48,8 @@ function Story() {
     >
       <div className="flex flex-col space-y-4">
         <div className="bg-green-100">{parent === null ? item : null}</div>
-        <div className="bg-slate-100">
-          {['A'].map((id) => (
+        <div className="bg-slate-100 flex space-x-4">
+          {['A', 'B', 'C'].map((id) => (
             <Droppable key={id} id={id} dragging={isDragging}>
               {parent === id ? item : null}
             </Droppable>
@@ -115,9 +115,7 @@ function Droppable({
   id: UniqueIdentifier
   dragging: boolean
 }) {
-  const { isOver, setNodeRef } = useDroppable({
-    id,
-  })
+  const { isOver, setNodeRef } = useDroppable({ id })
 
   return (
     <div
