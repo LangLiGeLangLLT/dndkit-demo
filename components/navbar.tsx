@@ -92,6 +92,10 @@ const items: Item[] = [
         title: 'Horizontal Axis',
         href: '/DragOverlay/horizontal-axis',
       },
+      {
+        title: 'Vertical Axis',
+        href: '/DragOverlay/vertical-axis',
+      },
     ],
   },
   {
