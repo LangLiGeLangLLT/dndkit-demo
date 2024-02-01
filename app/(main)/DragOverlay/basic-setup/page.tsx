@@ -13,6 +13,7 @@ import {
 import { Move, MoveHorizontal, MoveVertical } from 'lucide-react'
 import { forwardRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { CSS } from '@dnd-kit/utilities'
 
 enum Axis {
   All,
@@ -96,9 +97,53 @@ function DraggableItem({ axis, label }: { axis: Axis; label: string }) {
   )
 }
 
+const dropAnimationConfig: DropAnimation = {
+  keyframes({ transform }) {
+    return [
+      { transform: CSS.Transform.toString(transform.initial) },
+      {
+        transform: CSS.Transform.toString({
+          ...transform.final,
+          scaleX: 0.5,
+          scaleY: 0.5,
+        }),
+      },
+    ]
+  },
+  sideEffects({ active, dragOverlay }) {
+    active.node.style.opacity = '0'
+
+    const button = dragOverlay.node.querySelector('button')
+
+    if (button) {
+      button.animate(
+        [
+          {
+            boxShadow:
+              '-1px 0 15px 0 rgba(34, 33, 81, 0.01), 0px 15px 15px 0 rgba(34, 33, 81, 0.25)',
+          },
+          {
+            boxShadow:
+              '-1px 0 15px 0 rgba(34, 33, 81, 0), 0px 15px 15px 0 rgba(34, 33, 81, 0)',
+          },
+        ],
+        {
+          duration: 250,
+          easing: 'ease',
+          fill: 'forwards',
+        }
+      )
+    }
+
+    return () => {
+      active.node.style.opacity = ''
+    }
+  },
+}
+
 function DraggableOverlay({
   axis,
-  dropAnimation,
+  dropAnimation = dropAnimationConfig,
 }: {
   axis: Axis
   dropAnimation?: DropAnimation
