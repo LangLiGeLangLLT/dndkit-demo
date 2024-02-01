@@ -96,6 +96,10 @@ const items: Item[] = [
         title: 'Vertical Axis',
         href: '/DragOverlay/vertical-axis',
       },
+      {
+        title: 'Restrict To Window Edges',
+        href: '/DragOverlay/restrict-to-window-edges',
+      },
     ],
   },
   {
