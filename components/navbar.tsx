@@ -88,6 +88,10 @@ const items: Item[] = [
         title: 'Disable Drop Animation',
         href: '/DragOverlay/disable-drop-animation',
       },
+      {
+        title: 'Horizontal Axis',
+        href: '/DragOverlay/horizontal-axis',
+      },
     ],
   },
   {
