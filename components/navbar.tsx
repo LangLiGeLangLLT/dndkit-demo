@@ -119,6 +119,20 @@ const items: Item[] = [
       },
     ],
   },
+  {
+    title: 'Pages',
+    children: [
+      {
+        title: 'Layout',
+        children: [
+          {
+            title: 'Horizontal',
+            href: '/Pages/Layout/Horizontal',
+          },
+        ],
+      },
+    ],
+  },
 ]
 
 export default function Navbar() {
